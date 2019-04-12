@@ -139,9 +139,9 @@ public class MySQLQuery implements Query {
 			Object fieldValue = BeanUtils.invokeGet(obj, field.getName());
 			if (fieldValue != null) {
 				if (count == 0) {
-					sql.append("WHERE " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=?,");
+					sql.append("WHERE " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=? ");
 				} else {
-					sql.append("AND " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=?,");
+					sql.append("AND " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=? ");
 				}
 				count++;
 			}
@@ -207,9 +207,9 @@ public class MySQLQuery implements Query {
 			Object fieldValue = BeanUtils.invokeGet(obj, field.getName());
 			if (fieldValue != null) {
 				if (count == 0) {
-					sql.append("WHERE " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=?,");
+					sql.append("WHERE " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=? ");
 				} else {
-					sql.append("AND " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=?,");
+					sql.append("AND " + AliasConvertor.javaToDb(tableInfo.getColumns().get(AliasConvertor.javaToDb(field.getName())).getName()) + "=? ");
 				}
 				count++;
 			}

@@ -33,9 +33,17 @@ public class Configuration {
 	 */
 	private String srcPath;
 	/**
-	 * 包路径
+	 * entity包路径
 	 */
-	private String packagePath;
+	private String entityPackagePath;
+	/**
+	 * service包路径
+	 */
+	private String servicePackagePath;
+	/**
+	 * dao包路径
+	 */
+	private String daoPackagePath;
 
 	public String getDriver() {
 		return driver;
@@ -85,16 +93,33 @@ public class Configuration {
 		this.srcPath = srcPath;
 	}
 
-	public String getPackagePath() {
-		return packagePath;
+
+	public String getEntityPackagePath() {
+		return entityPackagePath;
 	}
 
-	public void setPackagePath(String packagePath) {
-		this.packagePath = packagePath;
+	public void setEntityPackagePath(String entityPackagePath) {
+		this.entityPackagePath = entityPackagePath;
+	}
+
+	public String getServicePackagePath() {
+		return servicePackagePath;
+	}
+
+	public void setServicePackagePath(String servicePackagePath) {
+		this.servicePackagePath = servicePackagePath;
+	}
+
+	public String getDaoPackagePath() {
+		return daoPackagePath;
+	}
+
+	public void setDaoPackagePath(String daoPackagePath) {
+		this.daoPackagePath = daoPackagePath;
 	}
 
 	public Configuration(String driver, String url, String username, String password, String usingDB, String srcPath,
-			String packagePath) {
+			String entityPackagePath, String servicePackagePath, String daoPackagePath) {
 		super();
 		this.driver = driver;
 		this.url = url;
@@ -102,7 +127,9 @@ public class Configuration {
 		this.password = password;
 		this.usingDB = usingDB;
 		this.srcPath = srcPath;
-		this.packagePath = packagePath;
+		this.entityPackagePath = entityPackagePath;
+		this.servicePackagePath = servicePackagePath;
+		this.daoPackagePath = daoPackagePath;
 	}
 
 	public Configuration() {

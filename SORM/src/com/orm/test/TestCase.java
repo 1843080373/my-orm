@@ -2,9 +2,9 @@ package com.orm.test;
 
 import java.util.List;
 
-import com.orm.core.MySQLQuery;
-import com.orm.utils.AliasConvertor;
-import com.test.po.User;
+import com.test.entity.User;
+import com.test.service.UserService;
+import com.test.service.UserServiceImpl;
 
 public class TestCase {
 
@@ -12,25 +12,24 @@ public class TestCase {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MySQLQuery query=new MySQLQuery();
-		//query.delete(User.class, 1);
-		User u=new User();
-		//u.setUserId(3);
+
+		UserService service = new UserServiceImpl();
+		service.delete(User.class, 1);
+		User u = new User();
+		u.setUserId(1141);
 		u.setPhone("222");
-		//u.setUserName("张三8888");
-		//u.setPassword("888");
-		//query.update(u);
-		//query.insert(u);
-		//query.delete(u);
-		//List<?> us= query.queryRows(u);
-		//System.out.println(us);
-		//Object o=query.queryOne(u);
-		Number o=query.queryNumber(u);
+		u.setUserName("张三8888");
+		u.setPassword("888");
+		service.update(u);
+		service.insert(u);
+		service.delete(u);
+		List<?> us = service.queryRows(u);
+		System.out.println(us);
+		Object o = service.queryOne(u);
 		System.out.println(o);
-		//String dbFeild="user_id";
-		//System.out.println(AliasConvertor.db2Java(dbFeild));
-		//String javaFeild="user_name";
-		//System.out.println(AliasConvertor.javaToDb(javaFeild));
+		Number o1 = service.queryNumber(u);
+		System.out.println(o1);
+
 	}
 
 }

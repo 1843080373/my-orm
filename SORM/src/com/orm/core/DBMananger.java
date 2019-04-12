@@ -22,10 +22,17 @@ public class DBMananger {
 		Properties pro = new Properties();
 		try {
 			pro.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("jdbc.properties"));
-			conf = new Configuration(pro.getProperty("orm.jdbc.driver"), pro.getProperty("orm.jdbc.url"),
-					pro.getProperty("orm.jdbc.username"), pro.getProperty("orm.jdbc.password"),
-					pro.getProperty("orm.jdbc.usingDB"), pro.getProperty("orm.src.path"),
-					pro.getProperty("orm.package.path"));
+			String srcPath=System.getProperty("user.dir")+"\\src\\";
+			conf = new Configuration(
+					pro.getProperty("orm.jdbc.driver"),
+					pro.getProperty("orm.jdbc.url"),
+					pro.getProperty("orm.jdbc.username"),
+					pro.getProperty("orm.jdbc.password"),
+					pro.getProperty("orm.jdbc.usingDB"), 
+					srcPath,
+					pro.getProperty("orm.package.entity"),
+					pro.getProperty("orm.package.service"),
+					pro.getProperty("orm.package.dao"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

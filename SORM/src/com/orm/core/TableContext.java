@@ -36,7 +36,7 @@ public class TableContext {
 				String table_name = (String) tableRes.getObject("TABLE_NAME");
 				TableInfo tableInfo = new TableInfo(table_name, new HashMap<>(), new ArrayList<>());
 				tables.put(table_name, tableInfo);
-				Class c=Class.forName(DBMananger.getConfiguration().getPackagePath()+"."+StringUtils.fistCharUpperCase(table_name));
+				Class c=Class.forName(DBMananger.getConfiguration().getEntityPackagePath()+"."+StringUtils.fistCharUpperCase(table_name));
 				poClassTableMap.put(c, tableInfo);
 				ResultSet columnsRes = databaseMetaData.getColumns(null, "%", table_name, "%");
 				while (columnsRes.next()) {
